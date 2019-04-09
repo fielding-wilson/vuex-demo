@@ -1,17 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Isn't Vuex cool?
+    <ToggleComponentOne
+      :toggle-value.sync="toggleValue"
+      primary-label="Yes"
+      secondary-label="No" />
+<!--    <ToggleComponentTwo-->
+<!--      :toggle-value.sync="toggleValue"-->
+<!--      primary-label="Yes"-->
+<!--      secondary-label="No" />-->
+    <div v-if="showYesText">
+      Right on! Vuex Rocks.
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import ToggleComponentOne from './components/ToggleComponentOne.vue';
+import ToggleComponentTwo from './components/ToggleComponentTwo.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    ToggleComponentOne,
+    ToggleComponentTwo,
+  },
+  computed: {
+    toggleValue() {
+      return this.$store.state.toggleValue;
+    },
+    showYesText() {
+      return this.$store.state.toggleValue === 'true';
+    },
   },
 };
 </script>
@@ -21,8 +41,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  font-size: 20px;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 20px 0 20px;
+  max-width: 1280px;
 }
 </style>
