@@ -9,6 +9,10 @@
 <!--      :toggle-value.sync="toggleValue"-->
 <!--      primary-label="Yes"-->
 <!--      secondary-label="No" />-->
+<!--    <ToggleComponentThree-->
+<!--      :toggle-value.sync="toggleValue"-->
+<!--      primary-label="Yes"-->
+<!--      secondary-label="No" />-->
     <div v-if="showYesText">
       Right on! Vuex Rocks.
     </div>
@@ -18,12 +22,14 @@
 <script>
 import ToggleComponentOne from './components/ToggleComponentOne.vue';
 import ToggleComponentTwo from './components/ToggleComponentTwo.vue';
+import ToggleComponentThree from './components/ToggleComponentThree.vue';
 
 export default {
   name: 'app',
   components: {
     ToggleComponentOne,
     ToggleComponentTwo,
+    ToggleComponentThree,
   },
   computed: {
     toggleValue() {
